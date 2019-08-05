@@ -25,9 +25,6 @@
 		F6980EA922F8313700D8E71E /* userIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6980EA822F8313700D8E71E /* userIDs.swift */; };
 		F6980EAA22F8313700D8E71E /* userIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6980EA822F8313700D8E71E /* userIDs.swift */; };
 		F6980EAB22F8313700D8E71E /* userIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6980EA822F8313700D8E71E /* userIDs.swift */; };
-		F6980EAD22F8326300D8E71E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6980EAC22F8326300D8E71E /* API.swift */; };
-		F6980EAE22F8326300D8E71E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6980EAC22F8326300D8E71E /* API.swift */; };
-		F6980EAF22F8326300D8E71E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6980EAC22F8326300D8E71E /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +61,6 @@
 		F6980E9C22F81CAF00D8E71E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F6980EA422F81EC100D8E71E /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		F6980EA822F8313700D8E71E /* userIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userIDs.swift; sourceTree = "<group>"; };
-		F6980EAC22F8326300D8E71E /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +177,6 @@
 		F6980E9922F81C7100D8E71E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				F6980EAC22F8326300D8E71E /* API.swift */,
 				F6980E9C22F81CAF00D8E71E /* NetworkManager.swift */,
 			);
 			name = Networking;
@@ -323,7 +318,6 @@
 				F6980E7F22F798E200D8E71E /* Extensions.swift in Sources */,
 				F6980E3E22F76D4500D8E71E /* AppDelegate.swift in Sources */,
 				F6980EA522F81EC100D8E71E /* Items.swift in Sources */,
-				F6980EAD22F8326300D8E71E /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +329,6 @@
 				F6980EA622F81EC100D8E71E /* Items.swift in Sources */,
 				F6980E5322F76D4800D8E71E /* HackerNewsTests.swift in Sources */,
 				F6980E8022F798E200D8E71E /* Extensions.swift in Sources */,
-				F6980EAE22F8326300D8E71E /* API.swift in Sources */,
 				F6980EAA22F8313700D8E71E /* userIDs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +341,6 @@
 				F6980EA722F81EC100D8E71E /* Items.swift in Sources */,
 				F6980E5E22F76D4800D8E71E /* HackerNewsUITests.swift in Sources */,
 				F6980E8122F798E200D8E71E /* Extensions.swift in Sources */,
-				F6980EAF22F8326300D8E71E /* API.swift in Sources */,
 				F6980EAB22F8313700D8E71E /* userIDs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -59,7 +59,6 @@ class NetworkManager {
         completion(.failure(error))
         return
       }
-      
       guard let jsonData = data else { return }
       do{
         let info = try JSONDecoder().decode(All.self, from: jsonData)
@@ -72,8 +71,6 @@ class NetworkManager {
       }
       
     }.resume()
-    
-    
     
   }
   
