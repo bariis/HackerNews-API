@@ -18,6 +18,12 @@ import Foundation
 //
 //}
 
+//struct AllInfo: Decodable  {
+//  var results: [All]
+//  
+//}
+
+
 struct All: Decodable {
   
   let username: String
@@ -27,6 +33,5 @@ struct All: Decodable {
   enum CodingKeys: String, CodingKey {
     case username = "by", title, url
   }
-  
   
 }

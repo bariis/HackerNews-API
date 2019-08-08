@@ -8,22 +8,31 @@
 
 import UIKit
 
-private let cell = "NewsCell"
+
+let cellId = "cellId"
 
 class FeedController: UITableViewController {
   
 
-  var users = [User]()
+  var users = [Int]()
   var news = [All]()
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    view.backgroundColor = .red
+  
+  setup()
+    print(users.count)
+    
+  }
+  
+  func setup(){
+    view.backgroundColor = .white
     navigationItem.title = "HackerNews"
     navigationController?.navigationBar.prefersLargeTitles = true
     fetchUserIds()
+    tableView.register(NewsCell.self, forCellReuseIdentifier: cellId)
     
   }
   
@@ -31,39 +40,57 @@ class FeedController: UITableViewController {
   func fetchUserIds(){
     
     NetworkManager.shared.fetchIds { (result) in
+      
       switch result {
       case .success(let id):
         self.users = id
-        for i in 1...20{
-          NetworkManager.shared.fetchInfo(of: self.users[i].userId, completion: { (result) in
-            switch result {
-            case .success(let info):
-             self.news = [info]
-             self.news.forEach({ (item) in
-              print(item.username + item.title + item.url)
-             })
-            case .failure(let error):
-              print(error)
+          print("\(self.users) + \(self.users.count)")
+        NetworkManager.shared.fetchInfo(of: self.users, completion: { (result) in
+          switch result {
+          case .success(let info):
+            self.news.append(info)
+            DispatchQueue.main.async {
+              self.tableView.reloadData()
             }
-          })
-        }
+          case .failure(let error):
+            print(error)
+          }
+        })
       case .failure(let error):
         print(error)
       }
-    }
-  }
 
-  
-  
+  }
+  }
 }
+
 
 extension FeedController {
   
-  override func numberOfSections(in tableView: UITableView) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return news.count
   }
   
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! NewsCell
+
+    
+      cell.titleLabel.text = news[indexPath.row].title
+    cell.urlLabel.text = news[indexPath.row].url
+
+//    cell.layoutSubviews()
+    return cell
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 60
+  }
   
   
-  
+
 }
+
+
+
+
+
