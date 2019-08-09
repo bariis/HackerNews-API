@@ -28,9 +28,7 @@ class NetworkManager {
       do {
         
         let array0fInts = try JSONDecoder().decode([Int].self, from: jsonData)
-      //  let info = array0fInts.map(User.init)
         completion(.success(array0fInts))
-        
         
       }catch let error {
         completion(.failure(error))
@@ -38,11 +36,7 @@ class NetworkManager {
       }.resume()
   }
   
-  
   func fetchInfo(of Id: [Int], completion: @escaping (Result<Items,Error>) -> Void){
-    
-  
-    
     
     Id.forEach { (id) in
       guard let url = URL(string: "https://hacker-news.firebaseio.com/v0/item/\(id).json") else { return }
@@ -54,14 +48,9 @@ class NetworkManager {
         }
         guard let jsonData = data else { return }
         do{
-          
-          
-          
           let info = try JSONDecoder().decode(Items.self, from: jsonData)
           
           completion(.success(info))
-          
-          
           
         }catch let error {
           completion(.failure(error))
@@ -69,10 +58,5 @@ class NetworkManager {
         
         }.resume()
     }
-    
-  
-    
   }
-  
-  
 }

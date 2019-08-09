@@ -14,20 +14,17 @@ class NewsCell: UITableViewCell{
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
-    
   }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError()
   }
   
-
   let titleLabel: UILabel = {
     let label = UILabel()
     label.textColor = UIColor.darkGray
     label.font = UIFont.systemFont(ofSize: 16)
     label.numberOfLines = 0
-    //label.adjustsFontSizeToFitWidth = true
     return label
   }()
   
@@ -36,7 +33,6 @@ class NewsCell: UITableViewCell{
     label.textColor = UIColor.lightGray
     label.sizeToFit()
     label.font = UIFont.systemFont(ofSize: 14)
-    //label.adjustsFontSizeToFitWidth = true
     return label
   }()
   
@@ -65,7 +61,6 @@ class NewsCell: UITableViewCell{
     return timeImage
   }()
   
-  
   func setup(with news: Items, with date: String){
       titleLabel.text = news.title
       urlLabel.text = news.url
@@ -75,8 +70,6 @@ class NewsCell: UITableViewCell{
   
   func setupView(){
    
-    
-    
     addSubview(titleLabel)
     titleLabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 5, paddingLeft: 5, paddingBottom: 0, paddingRight: 5, width: 0, height: 0)
     
@@ -96,8 +89,5 @@ class NewsCell: UITableViewCell{
     addSubview(timeLabel)
     timeLabel.anchor(top: urlLabel.bottomAnchor, left: timeImage.rightAnchor, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     
-    
   }
-  
-  
 }

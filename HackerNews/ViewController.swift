@@ -12,19 +12,13 @@ import SafariServices
 let cellId = "cellId"
 
 class FeedController: UITableViewController {
-  
 
   var users = [Int]()
   var news = [Items]()
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  
-  setup()
-    print(users.count)
-    
+    setup()
   }
   
   func setup(){
@@ -33,7 +27,6 @@ class FeedController: UITableViewController {
     navigationController?.navigationBar.prefersLargeTitles = true
     fetchUserIds()
     tableView.register(NewsCell.self, forCellReuseIdentifier: cellId)
-//    view.backgroundColor = .black
   }
 
   func fetchUserIds(){
@@ -51,7 +44,6 @@ class FeedController: UITableViewController {
             DispatchQueue.main.async {
               self.tableView.reloadData()
             }
-            
               self.news.append(info)
         
           case .failure(let error):
@@ -64,7 +56,6 @@ class FeedController: UITableViewController {
   }
 }
   
-  
   func convertDate(of unixTime: Double) -> String{
     let date = Date(timeIntervalSince1970: unixTime)
     let formatter = DateFormatter()
@@ -76,7 +67,6 @@ class FeedController: UITableViewController {
     
   }
 }
-
 
 extension FeedController {
   
