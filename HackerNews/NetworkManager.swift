@@ -39,30 +39,39 @@ class NetworkManager {
   }
   
   
-  func fetchInfo(of Id: [Int], completion: @escaping (Result<All,Error>) -> Void){
+  func fetchInfo(of Id: [Int], completion: @escaping (Result<Items,Error>) -> Void){
     
-    for i in 0..<20 {
+  
     
-    guard let url = URL(string: "https://hacker-news.firebaseio.com/v0/item/\(Id[i]).json") else { return }
-    URLSession.shared.dataTask(with: url) { (data, response, error) in
-      
-      if let error = error {
-        completion(.failure(error))
-        return
-      }
-      guard let jsonData = data else { return }
-      do{
-
-        let info = try JSONDecoder().decode(All.self, from: jsonData)
     
-        completion(.success(info))
-
-      }catch let error {
-        completion(.failure(error))
-      }
-      
-    }.resume()
+    Id.forEach { (id) in
+      guard let url = URL(string: "https://hacker-news.firebaseio.com/v0/item/\(id).json") else { return }
+      URLSession.shared.dataTask(with: url) { (data, response, error) in
+        
+        if let error = error {
+          completion(.failure(error))
+          return
+        }
+        guard let jsonData = data else { return }
+        do{
+          
+          
+          
+          let info = try JSONDecoder().decode(Items.self, from: jsonData)
+          
+          completion(.success(info))
+          
+          
+          
+        }catch let error {
+          completion(.failure(error))
+        }
+        
+        }.resume()
     }
+    
+  
+    
   }
   
   

@@ -24,14 +24,15 @@ import Foundation
 //}
 
 
-struct All: Decodable {
+struct Items: Decodable {
   
   let username: String
   let title: String
   let url: String
+  let time: Int
   
   enum CodingKeys: String, CodingKey {
-    case username = "by", title, url
+    case username = "by", title, url, time
   }
   
 }
